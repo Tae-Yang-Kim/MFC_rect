@@ -1,52 +1,51 @@
 ﻿
-// test_1.cpp: 응용 프로그램에 대한 클래스 동작을 정의합니다.
+// MFCex.cpp: 응용 프로그램에 대한 클래스 동작을 정의합니다.
 //
 
 #include "stdafx.h"
 #include "afxwinappex.h"
 #include "afxdialogex.h"
-#include "test_1.h"
+#include "MFCex.h"
 #include "MainFrm.h"
 
-#include "ChildFrm.h"
-#include "test_1Doc.h"
-#include "test_1View.h"
+#include "MFCexDoc.h"
+#include "MFCexView.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
 
-// Ctest1App
+// CMFCexApp
 
-BEGIN_MESSAGE_MAP(Ctest1App, CWinApp)
-	ON_COMMAND(ID_APP_ABOUT, &Ctest1App::OnAppAbout)
+BEGIN_MESSAGE_MAP(CMFCexApp, CWinApp)
+	ON_COMMAND(ID_APP_ABOUT, &CMFCexApp::OnAppAbout)
 	// 표준 파일을 기초로 하는 문서 명령입니다.
 	ON_COMMAND(ID_FILE_NEW, &CWinApp::OnFileNew)
 	ON_COMMAND(ID_FILE_OPEN, &CWinApp::OnFileOpen)
 END_MESSAGE_MAP()
 
 
-// Ctest1App 생성
+// CMFCexApp 생성
 
-Ctest1App::Ctest1App() noexcept
+CMFCexApp::CMFCexApp() noexcept
 {
 	// TODO: 아래 응용 프로그램 ID 문자열을 고유 ID 문자열로 바꾸십시오(권장).
 	// 문자열에 대한 서식: CompanyName.ProductName.SubProduct.VersionInformation
-	SetAppID(_T("test1.AppID.NoVersion"));
+	SetAppID(_T("MFCex.AppID.NoVersion"));
 
 	// TODO: 여기에 생성 코드를 추가합니다.
 	// InitInstance에 모든 중요한 초기화 작업을 배치합니다.
 }
 
-// 유일한 Ctest1App 개체입니다.
+// 유일한 CMFCexApp 개체입니다.
 
-Ctest1App theApp;
+CMFCexApp theApp;
 
 
-// Ctest1App 초기화
+// CMFCexApp 초기화
 
-BOOL Ctest1App::InitInstance()
+BOOL CMFCexApp::InitInstance()
 {
 	CWinApp::InitInstance();
 
@@ -69,23 +68,15 @@ BOOL Ctest1App::InitInstance()
 
 	// 응용 프로그램의 문서 템플릿을 등록합니다.  문서 템플릿은
 	//  문서, 프레임 창 및 뷰 사이의 연결 역할을 합니다.
-	CMultiDocTemplate* pDocTemplate;
-	pDocTemplate = new CMultiDocTemplate(IDR_test1TYPE,
-		RUNTIME_CLASS(Ctest1Doc),
-		RUNTIME_CLASS(CChildFrame), // 사용자 지정 MDI 자식 프레임입니다.
-		RUNTIME_CLASS(Ctest1View));
+	CSingleDocTemplate* pDocTemplate;
+	pDocTemplate = new CSingleDocTemplate(
+		IDR_MAINFRAME,
+		RUNTIME_CLASS(CMFCexDoc),
+		RUNTIME_CLASS(CMainFrame),       // 주 SDI 프레임 창입니다.
+		RUNTIME_CLASS(CMFCexView));
 	if (!pDocTemplate)
 		return FALSE;
 	AddDocTemplate(pDocTemplate);
-
-	// 주 MDI 프레임 창을 만듭니다.
-	CMainFrame* pMainFrame = new CMainFrame;
-	if (!pMainFrame || !pMainFrame->LoadFrame(IDR_MAINFRAME))
-	{
-		delete pMainFrame;
-		return FALSE;
-	}
-	m_pMainWnd = pMainFrame;
 
 
 	// 표준 셸 명령, DDE, 파일 열기에 대한 명령줄을 구문 분석합니다.
@@ -98,20 +89,14 @@ BOOL Ctest1App::InitInstance()
 	// 응용 프로그램이 /RegServer, /Register, /Unregserver 또는 /Unregister로 시작된 경우 FALSE를 반환합니다.
 	if (!ProcessShellCommand(cmdInfo))
 		return FALSE;
-	// 주 창이 초기화되었으므로 이를 표시하고 업데이트합니다.
-	pMainFrame->ShowWindow(m_nCmdShow);
-	pMainFrame->UpdateWindow();
 
+	// 창 하나만 초기화되었으므로 이를 표시하고 업데이트합니다.
+	m_pMainWnd->ShowWindow(SW_SHOW);
+	m_pMainWnd->UpdateWindow();
 	return TRUE;
 }
 
-int Ctest1App::ExitInstance()
-{
-	//TODO: 추가한 추가 리소스를 처리합니다.
-	return CWinApp::ExitInstance();
-}
-
-// Ctest1App 메시지 처리기
+// CMFCexApp 메시지 처리기
 
 
 // 응용 프로그램 정보에 사용되는 CAboutDlg 대화 상자입니다.
@@ -147,13 +132,13 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 // 대화 상자를 실행하기 위한 응용 프로그램 명령입니다.
-void Ctest1App::OnAppAbout()
+void CMFCexApp::OnAppAbout()
 {
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
 }
 
-// Ctest1App 메시지 처리기
+// CMFCexApp 메시지 처리기
 
 
 

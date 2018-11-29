@@ -3,7 +3,7 @@
 //
 
 #include "stdafx.h"
-#include "test_1.h"
+#include "MFCex.h"
 
 #include "MainFrm.h"
 
@@ -13,11 +13,19 @@
 
 // CMainFrame
 
-IMPLEMENT_DYNAMIC(CMainFrame, CMDIFrameWnd)
+IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 
-BEGIN_MESSAGE_MAP(CMainFrame, CMDIFrameWnd)
+BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
 END_MESSAGE_MAP()
+
+static UINT indicators[] =
+{
+	ID_SEPARATOR,           // 상태 줄 표시기
+	ID_INDICATOR_CAPS,
+	ID_INDICATOR_NUM,
+	ID_INDICATOR_SCRL,
+};
 
 // CMainFrame 생성/소멸
 
@@ -32,7 +40,7 @@ CMainFrame::~CMainFrame()
 
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-	if (CMDIFrameWnd::OnCreate(lpCreateStruct) == -1)
+	if (CFrameWnd::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
 	if (!m_wndToolBar.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
@@ -41,6 +49,13 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		TRACE0("도구 모음을 만들지 못했습니다.\n");
 		return -1;      // 만들지 못했습니다.
 	}
+
+	if (!m_wndStatusBar.Create(this))
+	{
+		TRACE0("상태 표시줄을 만들지 못했습니다.\n");
+		return -1;      // 만들지 못했습니다.
+	}
+	m_wndStatusBar.SetIndicators(indicators, sizeof(indicators)/sizeof(UINT));
 
 	// TODO: 도구 모음을 도킹할 수 없게 하려면 이 세 줄을 삭제하십시오.
 	m_wndToolBar.EnableDocking(CBRS_ALIGN_ANY);
@@ -53,13 +68,10 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
-	if( !CMDIFrameWnd::PreCreateWindow(cs) )
+	if( !CFrameWnd::PreCreateWindow(cs) )
 		return FALSE;
 	// TODO: CREATESTRUCT cs를 수정하여 여기에서
 	//  Window 클래스 또는 스타일을 수정합니다.
-
-	cs.style = WS_OVERLAPPED | WS_CAPTION | FWS_ADDTOTITLE
-		 | WS_SYSMENU;
 
 	return TRUE;
 }
@@ -69,12 +81,12 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 #ifdef _DEBUG
 void CMainFrame::AssertValid() const
 {
-	CMDIFrameWnd::AssertValid();
+	CFrameWnd::AssertValid();
 }
 
 void CMainFrame::Dump(CDumpContext& dc) const
 {
-	CMDIFrameWnd::Dump(dc);
+	CFrameWnd::Dump(dc);
 }
 #endif //_DEBUG
 

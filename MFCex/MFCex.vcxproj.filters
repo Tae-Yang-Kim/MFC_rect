@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="test_1.h">
+    <ClInclude Include="MFCex.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
@@ -27,13 +27,10 @@
     <ClInclude Include="MainFrm.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ChildFrm.h">
+    <ClInclude Include="MFCexDoc.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="test_1Doc.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="test_1View.h">
+    <ClInclude Include="MFCexView.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
@@ -41,7 +38,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test_1.cpp">
+    <ClCompile Include="MFCex.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
@@ -50,31 +47,28 @@
     <ClCompile Include="MainFrm.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ChildFrm.cpp">
+    <ClCompile Include="MFCexDoc.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="test_1Doc.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="test_1View.cpp">
+    <ClCompile Include="MFCexView.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="test1.rc">
+    <ResourceCompile Include="MFCex.rc">
       <Filter>리소스 파일</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\test1.rc2">
+    <None Include="res\MFCex.rc2">
       <Filter>리소스 파일</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\test_1Doc.ico">
+    <Image Include="res\MFCexDoc.ico">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="res\test_1.ico">
+    <Image Include="res\MFCex.ico">
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="res\Toolbar.bmp">

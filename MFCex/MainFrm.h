@@ -4,11 +4,12 @@
 
 #pragma once
 
-class CMainFrame : public CMDIFrameWnd
+class CMainFrame : public CFrameWnd
 {
-	DECLARE_DYNAMIC(CMainFrame)
-public:
+	
+protected: // serialization에서만 만들어집니다.
 	CMainFrame() noexcept;
+	DECLARE_DYNCREATE(CMainFrame)
 
 // 특성입니다.
 public:
@@ -30,6 +31,7 @@ public:
 
 protected:  // 컨트롤 모음이 포함된 멤버입니다.
 	CToolBar          m_wndToolBar;
+	CStatusBar        m_wndStatusBar;
 
 // 생성된 메시지 맵 함수
 protected:

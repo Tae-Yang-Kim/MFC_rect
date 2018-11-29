@@ -1,11 +1,10 @@
 ﻿//{{NO_DEPENDENCIES}}
 // Microsoft Visual C++에서 생성한 포함 파일입니다.
-// test1.rc에서 사용
+// MFCex.rc에서 사용
 //
 #define IDD_ABOUTBOX				100
 #define IDR_MAINFRAME				128
-#define IDR_test1TYPE				130
-#define ID_WINDOW_MANAGER			131
+#define IDR_MFCexTYPE				130
 
 // 다음은 새 개체에 사용할 기본값입니다.
 //

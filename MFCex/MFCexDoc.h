@@ -1,16 +1,16 @@
 ﻿
-// test_1Doc.h: Ctest1Doc 클래스의 인터페이스
+// MFCexDoc.h: CMFCexDoc 클래스의 인터페이스
 //
 
 
 #pragma once
 
 
-class Ctest1Doc : public CDocument
+class CMFCexDoc : public CDocument
 {
 protected: // serialization에서만 만들어집니다.
-	Ctest1Doc() noexcept;
-	DECLARE_DYNCREATE(Ctest1Doc)
+	CMFCexDoc() noexcept;
+	DECLARE_DYNCREATE(CMFCexDoc)
 
 // 특성입니다.
 public:
@@ -29,7 +29,7 @@ public:
 
 // 구현입니다.
 public:
-	virtual ~Ctest1Doc();
+	virtual ~CMFCexDoc();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;

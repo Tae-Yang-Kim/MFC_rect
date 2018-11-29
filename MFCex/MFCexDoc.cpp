@@ -1,15 +1,15 @@
 ﻿
-// test_1Doc.cpp: Ctest1Doc 클래스의 구현
+// MFCexDoc.cpp: CMFCexDoc 클래스의 구현
 //
 
 #include "stdafx.h"
 // SHARED_HANDLERS는 미리 보기, 축소판 그림 및 검색 필터 처리기를 구현하는 ATL 프로젝트에서 정의할 수 있으며
 // 해당 프로젝트와 문서 코드를 공유하도록 해 줍니다.
 #ifndef SHARED_HANDLERS
-#include "test_1.h"
+#include "MFCex.h"
 #endif
 
-#include "test_1Doc.h"
+#include "MFCexDoc.h"
 
 #include <propkey.h>
 
@@ -17,27 +17,27 @@
 #define new DEBUG_NEW
 #endif
 
-// Ctest1Doc
+// CMFCexDoc
 
-IMPLEMENT_DYNCREATE(Ctest1Doc, CDocument)
+IMPLEMENT_DYNCREATE(CMFCexDoc, CDocument)
 
-BEGIN_MESSAGE_MAP(Ctest1Doc, CDocument)
+BEGIN_MESSAGE_MAP(CMFCexDoc, CDocument)
 END_MESSAGE_MAP()
 
 
-// Ctest1Doc 생성/소멸
+// CMFCexDoc 생성/소멸
 
-Ctest1Doc::Ctest1Doc() noexcept
+CMFCexDoc::CMFCexDoc() noexcept
 {
 	// TODO: 여기에 일회성 생성 코드를 추가합니다.
 
 }
 
-Ctest1Doc::~Ctest1Doc()
+CMFCexDoc::~CMFCexDoc()
 {
 }
 
-BOOL Ctest1Doc::OnNewDocument()
+BOOL CMFCexDoc::OnNewDocument()
 {
 	if (!CDocument::OnNewDocument())
 		return FALSE;
@@ -51,9 +51,9 @@ BOOL Ctest1Doc::OnNewDocument()
 
 
 
-// Ctest1Doc serialization
+// CMFCexDoc serialization
 
-void Ctest1Doc::Serialize(CArchive& ar)
+void CMFCexDoc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
@@ -68,7 +68,7 @@ void Ctest1Doc::Serialize(CArchive& ar)
 #ifdef SHARED_HANDLERS
 
 // 축소판 그림을 지원합니다.
-void Ctest1Doc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
+void CMFCexDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 {
 	// 문서의 데이터를 그리려면 이 코드를 수정하십시오.
 	dc.FillSolidRect(lprcBounds, RGB(255, 255, 255));
@@ -89,7 +89,7 @@ void Ctest1Doc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 }
 
 // 검색 처리기를 지원합니다.
-void Ctest1Doc::InitializeSearchContent()
+void CMFCexDoc::InitializeSearchContent()
 {
 	CString strSearchContent;
 	// 문서의 데이터에서 검색 콘텐츠를 설정합니다.
@@ -99,7 +99,7 @@ void Ctest1Doc::InitializeSearchContent()
 	SetSearchContent(strSearchContent);
 }
 
-void Ctest1Doc::SetSearchContent(const CString& value)
+void CMFCexDoc::SetSearchContent(const CString& value)
 {
 	if (value.IsEmpty())
 	{
@@ -119,19 +119,19 @@ void Ctest1Doc::SetSearchContent(const CString& value)
 
 #endif // SHARED_HANDLERS
 
-// Ctest1Doc 진단
+// CMFCexDoc 진단
 
 #ifdef _DEBUG
-void Ctest1Doc::AssertValid() const
+void CMFCexDoc::AssertValid() const
 {
 	CDocument::AssertValid();
 }
 
-void Ctest1Doc::Dump(CDumpContext& dc) const
+void CMFCexDoc::Dump(CDumpContext& dc) const
 {
 	CDocument::Dump(dc);
 }
 #endif //_DEBUG
 
 
-// Ctest1Doc 명령
+// CMFCexDoc 명령

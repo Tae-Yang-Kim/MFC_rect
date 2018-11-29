@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{82B950DF-07D1-45E2-A0C2-700917951809}</ProjectGuid>
+    <ProjectGuid>{76F4649E-FDA4-4C96-AB3A-C26B8AF7EF50}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
-    <RootNamespace>test1</RootNamespace>
+    <RootNamespace>MFCex</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -179,37 +179,35 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MFCex.h" />
+    <ClInclude Include="MFCexDoc.h" />
+    <ClInclude Include="MFCexView.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="test_1.h" />
-    <ClInclude Include="test_1Doc.h" />
-    <ClInclude Include="test_1View.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MFCex.cpp" />
+    <ClCompile Include="MFCexDoc.cpp" />
+    <ClCompile Include="MFCexView.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="test_1.cpp" />
-    <ClCompile Include="test_1Doc.cpp" />
-    <ClCompile Include="test_1View.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="test1.rc" />
+    <ResourceCompile Include="MFCex.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\test1.rc2" />
+    <None Include="res\MFCex.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\test_1.ico" />
-    <Image Include="res\test_1Doc.ico" />
+    <Image Include="res\MFCex.ico" />
+    <Image Include="res\MFCexDoc.ico" />
     <Image Include="res\Toolbar.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

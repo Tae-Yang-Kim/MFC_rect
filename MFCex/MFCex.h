@@ -1,5 +1,5 @@
 ﻿
-// test_1.h: test_1 응용 프로그램의 기본 헤더 파일
+// MFCex.h: MFCex 응용 프로그램의 기본 헤더 파일
 //
 #pragma once
 
@@ -10,24 +10,23 @@
 #include "resource.h"       // 주 기호입니다.
 
 
-// Ctest1App:
-// 이 클래스의 구현에 대해서는 test_1.cpp을(를) 참조하세요.
+// CMFCexApp:
+// 이 클래스의 구현에 대해서는 MFCex.cpp을(를) 참조하세요.
 //
 
-class Ctest1App : public CWinApp
+class CMFCexApp : public CWinApp
 {
 public:
-	Ctest1App() noexcept;
+	CMFCexApp() noexcept;
 
 
 // 재정의입니다.
 public:
 	virtual BOOL InitInstance();
-	virtual int ExitInstance();
 
 // 구현입니다.
 	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()
 };
 
-extern Ctest1App theApp;
+extern CMFCexApp theApp;
