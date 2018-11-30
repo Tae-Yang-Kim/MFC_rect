@@ -19,6 +19,7 @@ public:
 public:
 	CList<CPoint, CPoint&> m_ArrList;
 	CPoint m_Pt1, m_Pt2;
+	
 // 재정의입니다.
 public:
 	virtual void OnDraw(CDC* pDC);  // 이 뷰를 그리기 위해 재정의되었습니다.
